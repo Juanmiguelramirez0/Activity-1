@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Dictionary;
+
+class DictionaryController extends Controller
+{
+    public function index()
+    {
+        // Eager load achievements for each dictionary
+        $dictionaries = Dictionary::with('achievements')->get();
+
+        return view('dictionary.index', compact('dictionaries'));
+    }
+}
+
