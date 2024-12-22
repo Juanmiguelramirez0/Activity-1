@@ -1,0 +1,21 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Dictionary;
+use App\Models\Achievement;
+use Illuminate\Database\Seeder;
+
+class DictionarySeeder extends Seeder
+{
+    public function run()
+    {
+        $dictionaries = Dictionary::factory(5)->create();
+
+        foreach ($dictionaries as $dictionary) {
+            Achievement::factory(2)->create([
+                'dictionary_id' => $dictionary->id,  // Associate achievements with the dictionary
+            ]);
+        }
+    }
+}
