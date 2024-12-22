@@ -1,0 +1,20 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Achievement;
+use App\Models\Dictionary;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class AchievementFactory extends Factory
+{
+    protected $model = Achievement::class;
+
+    public function definition()
+    {
+        return [
+            'award' => $this->faker->word,  // Random award name
+            'dictionary_id' => Dictionary::factory(),  // Automatically associate a dictionary
+        ];
+    }
+}
