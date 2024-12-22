@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Dictionary extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['word'];
+
+    // One-to-many relationship: One dictionary can have many achievements
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+}
